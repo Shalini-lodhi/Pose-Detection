@@ -65,7 +65,7 @@ def page_experiment(state):
 # instruction for experiment
 def instructionForImplementation(state):
     st.write("Choose three- *body landmarks* according to the exercise you want to perform:   ")
-    st.image('Self-it/AiTrainer/blazePose33Points.jpg', "Pose landmarks.")
+    st.image('/AiTrainer/blazePose33Points.jpg', "Pose landmarks.")
 
     colA, col1, col2, col3 = st.beta_columns(4)
     with colA:
@@ -158,14 +158,14 @@ def position_Lower(state):
     if state.selectbox == "Sit Ups":
         video = "sitUps.mp4"
         if not state.inputMethod == "Web camera" and not state.checkbox:
-            st.sidebar.video("Self-it/AiTrainer/" + video)
+            st.sidebar.video("/AiTrainer/" + video)
         #  if video is not uploaded
         if not state.checkbox:
             workout_Code(state, video)
     elif state.selectbox == "Squat":
         video = "squat.mp4"
         if not state.inputMethod == "Web camera" and not state.checkbox:
-            st.sidebar.video("Self-it/AiTrainer/" + video)
+            st.sidebar.video("/AiTrainer/" + video)
         #  if video is not uploaded
         if not state.checkbox:
             workout_Code(state, video)
@@ -178,7 +178,7 @@ def position_Core(state):
     if state.selectbox == "Push Ups":
         video = "pushUp1.mp4"
         if not state.inputMethod == "Web camera" and not state.checkbox:
-            st.sidebar.video("Self-it/AiTrainer/" + video)
+            st.sidebar.video("/AiTrainer/" + video)
         #  if video is not uploaded
         if not state.checkbox:
             workout_Code(state, video)
@@ -191,7 +191,7 @@ def workout_Code(state, video):
     stframe = st.empty()
 
     if st.button('Start'):
-        f = open('Self-it/AiTrainer/' + video, 'rb')
+        f = open('/AiTrainer/' + video, 'rb')
         tfile = tempfile.NamedTemporaryFile(delete=False)
         tfile.write(f.read())
         vf = cv2.VideoCapture(tfile.name)
