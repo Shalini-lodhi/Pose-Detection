@@ -1,5 +1,5 @@
 numpy==1.20.2
-opencv-python==4.5.1.48
+opencv-python==4.5.2.52
 pandas==1.2.4
 streamlit==0.81.1
 streamlit-webrtc==0.12.0
