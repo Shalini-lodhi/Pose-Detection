@@ -4,6 +4,7 @@ from streamlit.hashing import _CodeHasher
 import cv2
 import numpy as np
 import PoseModule as pm
+import AiTrainer as AT
 import tempfile
 
 #   exception handler:
@@ -134,9 +135,9 @@ def position_Upper(state):
     # exercise
     state.selectbox = st.sidebar.selectbox("Select particular exercise.", ["Pull Ups", "Biceps"])
     if state.selectbox == "Pull Ups":
-        video = "pullUps.mp4"
+        video = "AT.pullUps.mp4"
         if not state.inputMethod == "Web camera" and not state.checkbox:
-            st.sidebar.video("Self-it/AiTrainer/" + video)
+            st.sidebar.video(video)
 
         #  if video is not uploaded
         if not state.checkbox:
@@ -144,9 +145,9 @@ def position_Upper(state):
 
 
     elif state.selectbox == "Biceps":
-        video = "biceps.mp4"
+        video = "AT.biceps.mp4"
         if not state.inputMethod == "Web camera" and not state.checkbox:
-            st.sidebar.video("Self-it/AiTrainer/" + video)
+            st.sidebar.video(video)
         #  if video is not uploaded
         if not state.checkbox:
             workout_Code(state, video)
@@ -156,16 +157,16 @@ def position_Lower(state):
     # exercise
     state.selectbox = st.sidebar.selectbox("Select particular exercise.", ["Sit Ups", "Squat"])
     if state.selectbox == "Sit Ups":
-        video = "sitUps.mp4"
+        video = "AT.sitUps.mp4"
         if not state.inputMethod == "Web camera" and not state.checkbox:
-            st.sidebar.video("/AiTrainer/" + video)
+            st.sidebar.video(video)
         #  if video is not uploaded
         if not state.checkbox:
             workout_Code(state, video)
     elif state.selectbox == "Squat":
-        video = "squat.mp4"
+        video = "AT.squat.mp4"
         if not state.inputMethod == "Web camera" and not state.checkbox:
-            st.sidebar.video("/AiTrainer/" + video)
+            st.sidebar.video(video)
         #  if video is not uploaded
         if not state.checkbox:
             workout_Code(state, video)
@@ -176,9 +177,9 @@ def position_Core(state):
     # exercise
     state.selectbox = st.sidebar.selectbox("Select particular exercise.", ["Push Ups", "--"])
     if state.selectbox == "Push Ups":
-        video = "pushUp1.mp4"
+        video = "AT.pushUp1.mp4"
         if not state.inputMethod == "Web camera" and not state.checkbox:
-            st.sidebar.video("/AiTrainer/" + video)
+            st.sidebar.video(video)
         #  if video is not uploaded
         if not state.checkbox:
             workout_Code(state, video)
@@ -191,7 +192,7 @@ def workout_Code(state, video):
     stframe = st.empty()
 
     if st.button('Start'):
-        f = open('/AiTrainer/' + video, 'rb')
+        f = open(video, 'rb')
         tfile = tempfile.NamedTemporaryFile(delete=False)
         tfile.write(f.read())
         vf = cv2.VideoCapture(tfile.name)
