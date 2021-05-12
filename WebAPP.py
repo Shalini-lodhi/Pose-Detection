@@ -343,7 +343,6 @@ def _get_state(hash_funcs=None):
 
     return session._custom_session_state
 
-RUN apt-get update ##[edited]
-RUN apt-get install ffmpeg libsm6 libxext6  -y
+
 if __name__ == "__main__":
     main()
