@@ -65,7 +65,7 @@ def page_experiment(state):
 # instruction for experiment
 def instructionForImplementation(state):
     st.write("Choose three- *body landmarks* according to the exercise you want to perform:   ")
-    st.image('blazePose33Points.jpg', "Pose landmarks.")
+    st.image('AITrainer/blazePose33Points.jpg', "Pose landmarks.")
 
     colA, col1, col2, col3 = st.beta_columns(4)
     with colA:
